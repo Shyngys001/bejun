@@ -2,27 +2,26 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>MonnaRosa — Детская одежда премиум класса</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonnaRosa.kz - Детская одежда премиум класса</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
- <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Шапка сайта -->
     <header class="header">
         <div class="container">
-            <a href="index.html" class="logo">MonnaRosa</a>
+            <a href="#" class="logo">MonnaRosa</a>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="catalog.html">Каталог</a></li>
-                    <li><a href="index.html#about">О компании</a></li>
-                    <li><a href="index.html#contacts">Контакты</a></li>
+                  <li><a href="index.html"        >Главная</a></li>
+                  <li><a href="index.html#catalog">Каталог</a></li>
+                  <li><a href="index.html#about"  >О компании</a></li>
+                  <li><a href="index.html#contacts">Контакты</a></li>
                 </ul>
-            </nav>
+              </nav>
             <div class="header-actions">
-                <input type="search" id="search-input" placeholder="Поиск товара…" />
                 <button class="btn-icon" id="favorites-btn">
                     <i class="fas fa-heart"></i>
                     <span class="count" id="favorites-count">0</span>
@@ -43,25 +42,38 @@
         <div class="container">
             <h1>Роскошная одежда для детей</h1>
             <p>Качество, стиль и элегантность для ваших малышей</p>
-            <a href="catalog.html" class="btn-primary">Смотреть коллекцию</a>
+            <a href="#catalog" class="btn-primary">Смотреть коллекцию</a>
         </div>
     </section>
 
     <!-- Каталог товаров -->
-    <section class="categories" id="categories">
+    <section class="catalog" id="catalog">
         <div class="container">
             <h2>Категории</h2>
             <div class="categories-grid" id="categories-container">
-                <div class="data-placeholder">
-                    <div class="loading-spinner"></div>
-                    <p>Загрузка категорий...</p>
-                </div>
+                <!-- Категории загружаются из Google Sheets -->
+            </div>
+
+            <div class="filters">
+                <select id="category-filter">
+                    <option value="all">Все категории</option>
+                </select>
+                <select id="sort">
+                    <option value="default">По умолчанию</option>
+                    <option value="price-asc">Цена: по возрастанию</option>
+                    <option value="price-desc">Цена: по убыванию</option>
+                    <option value="sale">Скидки</option>
+                </select>
+            </div>
+
+            <div class="products-grid" id="products-container">
+                <!-- Товары загружаются из Google Sheets -->
             </div>
         </div>
     </section>
 
     <!-- О компании -->
-    <section class="about" id="about">
+    <section class="about">
         <div class="container">
             <div class="about-content">
                 <h2>О бренде MonnaRosa</h2>
@@ -83,38 +95,32 @@
                 </div>
             </div>
             <div class="about-image">
-                <img src="image.png" alt="Одежда MonnaRosa">
+                <img src="https://images.unsplash.com/photo-1604917018618-155a0a6e9a0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Одежда MonnaRosa">
             </div>
         </div>
     </section>
 
     <!-- Контакты -->
-    <section class="contacts" id="contacts">
+    <section class="contacts">
         <div class="container">
             <div class="contacts-info">
                 <h2>Контакты</h2>
                 <p><i class="fas fa-map-marker-alt"></i> ТРЦ Forum, г. Алматы</p>
-                <p><i class="fas fa-phone"></i> +7‒702‒007‒22‒68</p>
+                <p><i class="fas fa-phone"></i> +7 (747) 989-48-79</p>
                 <p><i class="fas fa-clock"></i> Ежедневно: 10:00 - 22:00</p>
                 
-                <form id="contact-form" class="contact-form">
+                <form class="contact-form">
                     <h3>Обратная связь</h3>
-                    <input type="text" id="cf-name" placeholder="Ваше имя" required>
-                    <input type="tel" id="cf-phone" placeholder="Телефон" required>
-                    <textarea id="cf-message" placeholder="Сообщение"></textarea>
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="tel" placeholder="Телефон" required>
+                    <input type="email" placeholder="Email">
+                    <textarea placeholder="Сообщение"></textarea>
                     <button type="submit" class="btn-primary">Отправить</button>
-                  </form>
+                </form>
             </div>
             <div class="contacts-map">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25135932.88997517!2d31.83466473698213!3d39.73176163482165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836f6eed7aa93d%3A0xaf277b6548731ded!2sForum%20Almaty!5e0!3m2!1sen!2skz!4v1751556655229!5m2!1sen!2skz"
-                  width="100%"
-                  height="450"
-                  style="border:0;"
-                  allowfullscreen=""
-                  loading="lazy">
-                </iframe>
-              </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.776949826709!2d76.879097315484!3d43.2344821791378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883692f027685ad%3A0x2426740f56437e63!2sForum%20Almaty!5e0!3m2!1sen!2skz!4v1650000000000!5m2!1sen!2skz" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
     </section>
 
@@ -129,37 +135,23 @@
                 <div class="footer-column">
                     <h3>Меню</h3>
                     <ul>
-                        <li><a href="index.html">Главная</a></li>
-                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#catalog">Каталог</a></li>
                         <li><a href="#about">О нас</a></li>
                         <li><a href="#contacts">Контакты</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Контакты</h3>
-                    <p>
-                      <i class="fas fa-map-marker-alt"></i>
-                      <a 
-                        href="https://go.2gis.com/DWXJU" 
-                        target="_blank" 
-                        rel="noopener"
-                        style="color: inherit; text-decoration: none;"
-                      >
-                        ТРЦ Forum, г. Алматы
-                      </a>
-                    </p>
-                    <p>
-                      <i class="fas fa-phone"></i>
-                      <a href="tel:+77020072268" style="color: inherit; text-decoration: none;">
-                        +7 702 007 22 68
-                      </a>
-                    </p>
-                  </div>
+                    <p>ТРЦ Forum, г. Алматы</p>
+                    <p>+7 (747) 989-48-79</p>
+                </div>
                 <div class="footer-column">
                     <h3>Соцсети</h3>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/monnarosa_kz/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/77020072268"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -194,17 +186,6 @@
         </div>
     </div>
 
-    <!-- Панель Избранного -->
-    <div class="favorites-drawer" id="favorites-drawer">
-        <div class="drawer-header">
-            <h2>Избранное</h2>
-            <button class="btn-close" id="close-favorites">&times;</button>
-        </div>
-        <div class="drawer-body" id="favorites-items">
-            <!-- Сюда JS вставит избранные товары -->
-        </div>
-    </div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
