@@ -177,7 +177,7 @@
   }
   .category-card:hover{transform:translateY(-6px) rotate(-0.5deg)}
   .category-card img{
-    width:100%;height:100%;object-fit:cover;transition:var(--transition);
+    width:60%; margin: 0 auto; height:100%;object-fit:cover;transition:var(--transition);
   }
   .category-card:hover img{transform:scale(1.06)}
   .category-card h3{
@@ -527,3 +527,82 @@
     from{transform:scale(.92)}
     to{transform:scale(1)}
   }
+
+
+  /* === MOBILE COMPACT CARDS & FULL IMAGE FIT === */
+@media (max-width: 768px) {
+  /* сетка компактнее */
+  .products-grid{
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  /* карточка ниже и проще */
+  .product-card{
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.06);
+  }
+
+  /* контейнер картинки: фикс. пропорция + центрирование */
+  .product-image{
+    height: auto !important;
+    aspect-ratio: 1 / 1.1;              /* одинаковая высота в сетке */
+    background: #fff;                    /* фон под «пустоты» */
+    display: flex; align-items: center; justify-content: center;
+    padding: 6px;                        /* небольшой отступ внутри */
+  }
+  /* картинка полностью видна */
+  .product-image img{
+    width: 100%; height: 100%;
+    object-fit: contain !important;      /* вместо cover */
+    transform: none !important;          /* убираем зум на hover */
+  }
+
+  /* бейдж скидки – меньше */
+  .sale-badge{
+    width: 28px; height: 28px; font-size: 10px; top: 6px; right: 6px;
+  }
+
+  /* текст и отступы компактнее */
+  .product-details{ padding: 10px 10px 8px; }
+  .product-category{ font-size: 9px; margin: 0 0 4px; }
+  .product-details h3{ font-size: 12px; line-height: 1.25; min-height: 30px; }
+  .product-price{ gap: 6px; margin: 6px 0 0; }
+  .current-price, .old-price{ font-size: 12px; }
+
+  /* размеры/цвета – в одну линию, со скроллом, чтобы не раздувать высоту */
+  .product-sizes, .product-colors{
+    margin: 8px 10px 8px;
+    gap: 6px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 2px;
+  }
+  .size-tag, .color-tag{
+    font-size: 10px; padding: 2px 8px;
+  }
+
+  /* зона действий – компактнее */
+  .product-actions{
+    padding: 0 10px 10px;
+    gap: 8px;
+  }
+  .heart-btn{ font-size: 18px; }
+  .btn-primary.add-to-cart{
+    padding: 8px 10px;
+    font-size: 12px;
+    width: auto;                         /* кнопка не на всю ширину */
+  }
+}
+
+/* Модалка: фото тоже целиком */
+@media (max-width: 1024px){
+  .modal-main-image{
+    height: auto !important;
+    aspect-ratio: 1 / 1;                 /* квадратная витрина */
+    background: #fff;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .modal-main-image img{ object-fit: contain !important; }
+}
+
